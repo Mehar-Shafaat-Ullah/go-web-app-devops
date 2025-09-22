@@ -1,25 +1,24 @@
-from golang:1.18.1-alpine as builder
-
+# Build stage
+FROM golang:alpine AS builder
 
 WORKDIR /app
 
-copy go.mod . 
-
+COPY go.mod ./
 RUN go mod download
 
-copy . . 
+COPY . .
 
-RUN go build -o main .
+# build without VCS stamping (no git needed)
+RUN go build -buildvcs=false -o main .
 
-#final image dostroless
+# Final stage: tiny distroless image
+FROM gcr.io/distroless/base-debian11
 
-FROM gcr.io/distroless/base	
-
-COPY  --from=builder /app/main .
-
-COPY --from=builder /app/static ./static
+WORKDIR /
+COPY --from=builder /app/main /main
+COPY --from=builder /app/static /static
 
 EXPOSE 8083
 
-CMD ["./main"] 
+CMD ["/main"]
 
