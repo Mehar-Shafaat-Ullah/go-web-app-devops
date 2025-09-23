@@ -4,3 +4,6 @@ metadata:
   name: go-web-app
   labels:
     app: go-web-app
+spec:
+  ports:
+    - port: 80
