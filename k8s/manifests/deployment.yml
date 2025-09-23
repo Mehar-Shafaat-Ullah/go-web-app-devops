@@ -15,7 +15,7 @@ spec:
         app: gow-image
    spec:
      container:
-    - name: gow-image
+    - name: gow-container
       image: meharshafaatullah/gow-image:v1
       ports:
       - ContainerPort: 8083
