@@ -4,4 +4,10 @@ metadata:
   name: gow-image
   labels:
     app: gow-image
-
+spec: 
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: gow-image
+  templates:
+   metadata:
