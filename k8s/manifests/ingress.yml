@@ -9,9 +9,9 @@ spec:
   rules:
   - host: go-image-domain.local
    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: go-web-app
+     paths:
+     - path: /
+       pathType: Prefix
+       backend:
+         service:
+           name: go-web-app
