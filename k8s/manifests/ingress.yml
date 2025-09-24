@@ -16,4 +16,4 @@ spec:
          service:
            name: go-web-app
            port:
-            number: 8083
+            number: 80
