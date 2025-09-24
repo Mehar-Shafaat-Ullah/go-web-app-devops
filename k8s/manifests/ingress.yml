@@ -4,3 +4,5 @@ metadata:
   name: gow-image
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx-example
