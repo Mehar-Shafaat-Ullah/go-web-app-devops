@@ -6,3 +6,5 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx-example
+  rules:
+  - host: go-image-domain.local
