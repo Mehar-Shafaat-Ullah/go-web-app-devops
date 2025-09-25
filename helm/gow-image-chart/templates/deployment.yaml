@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gow-image
+  labels:
+    app: gow-image
+spec: 
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: gow-image
+  templates:
+    metadata:
+      labels:
+        app: gow-image
+   spec:
+     container:
+    - name: gow-container
+      image: meharshafaatullah/gow-image:v1
+      ports:
+      - ContainerPort: 8083
